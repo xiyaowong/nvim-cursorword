@@ -10,6 +10,6 @@ Only highlight the word under the cursor.
 
 by default
 
-```vimscript
+```viml
 highlight CursorWord term=underline cterm=underline gui=underline
 ```
