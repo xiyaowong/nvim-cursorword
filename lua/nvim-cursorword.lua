@@ -34,4 +34,12 @@ function M.matchadd()
   end
 end
 
+function M.matchdelete()
+  vim.w.cursorword = nil
+  if vim.w.cursorword_match_id then
+    fn.matchdelete(vim.w.cursorword_match_id)
+    vim.w.cursorword_match_id = nil
+  end
+end
+
 return M
