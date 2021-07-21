@@ -13,5 +13,5 @@ Only highlight the word under the cursor.
 by default
 
 ```viml
-highlight CursorWord term=underline cterm=underline gui=underline
+hi! CursorWord cterm=underline gui=underline
 ```
