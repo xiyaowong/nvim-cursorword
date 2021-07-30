@@ -9,6 +9,16 @@ function M.highlight()
   end
 end
 
+local function matchdelete(clear_word)
+  if clear_word then
+    vim.w.cursorword = nil
+  end
+  if vim.w.cursorword_match_id then
+    pcall(fn.matchdelete, vim.w.cursorword_match_id)
+    vim.w.cursorword_match_id = nil
+  end
+end
+
 function M.matchadd()
   local column = api.nvim_win_get_cursor(0)[2]
   local line = api.nvim_get_current_line()
@@ -21,10 +31,7 @@ function M.matchadd()
 
   vim.w.cursorword = cursorword
 
-  if vim.w.cursorword_match_id then
-    fn.matchdelete(vim.w.cursorword_match_id)
-    vim.w.cursorword_match_id = nil
-  end
+  matchdelete()
 
   if #cursorword < 3 or #cursorword > 100 or cursorword:find("[\192-\255]+") then
     return
@@ -34,11 +41,7 @@ function M.matchadd()
 end
 
 function M.matchdelete()
-  vim.w.cursorword = nil
-  if vim.w.cursorword_match_id then
-    fn.matchdelete(vim.w.cursorword_match_id)
-    vim.w.cursorword_match_id = nil
-  end
+  matchdelete(true)
 end
 
 return M
