@@ -37,6 +37,7 @@ function M.matchadd()
     return
   end
 
+  cursorword = fn.escape(cursorword, [[~"\.^$[]*]])
   vim.w.cursorword_match_id = fn.matchadd("CursorWord", [[\<]] .. cursorword .. [[\>]])
 end
 
