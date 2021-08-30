@@ -19,13 +19,24 @@ local function matchdelete(clear_word)
   end
 end
 
+local function matchstr(...)
+  local ok, ret = pcall(fn.matchstr, ...)
+  if ok then
+    return ret
+  end
+  return ""
+end
+
 function M.matchadd()
   local column = api.nvim_win_get_cursor(0)[2]
   local line = api.nvim_get_current_line()
-  local cursorword = fn.matchstr(line:sub(1, column + 1), [[\k*$]])
-    .. fn.matchstr(line:sub(column + 1), [[^\k*]]):sub(2)
 
-  if cursorword == vim.w.cursorword then
+  local left = matchstr(line:sub(1, column + 1), [[\k*$]])
+  local right = matchstr(line:sub(column + 1), [[^\k*]]):sub(2)
+
+  local cursorword = left .. right
+
+  if cursorword == vim.w.cursorwod then
     return
   end
 
