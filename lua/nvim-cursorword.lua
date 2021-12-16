@@ -49,7 +49,7 @@ function M.matchadd()
   end
 
   cursorword = fn.escape(cursorword, [[~"\.^$[]*]])
-  vim.w.cursorword_match_id = fn.matchadd("CursorWord", [[\<]] .. cursorword .. [[\>]])
+  vim.w.cursorword_match_id = fn.matchadd("CursorWord", [[\<]] .. cursorword .. [[\>]], -1)
 end
 
 function M.matchdelete()
