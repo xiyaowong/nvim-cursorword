@@ -8,6 +8,20 @@ Part of [nvim-cursorline](https://github.com/yamatsum/nvim-cursorline).
 
 Only highlight the word under the cursor.
 
+## Option
+
+disable highlighting for some filetypes
+
+```vimscript
+let g:cursorword_disable_filetypes = []
+```
+
+or
+
+```lua
+vim.g.cursorword_disable_filetypes = {}
+```
+
 ## highlight
 
 by default

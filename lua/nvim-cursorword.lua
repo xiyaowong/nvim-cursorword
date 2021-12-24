@@ -28,6 +28,10 @@ local function matchstr(...)
 end
 
 function M.matchadd()
+  if vim.tbl_contains(vim.g.cursorword_disable_filetypes or {}, vim.bo.filetype) then
+    return
+  end
+
   local column = api.nvim_win_get_cursor(0)[2]
   local line = api.nvim_get_current_line()
 
