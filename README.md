@@ -10,22 +10,24 @@ Only highlight the word under the cursor.
 
 ## Option
 
-disable highlighting for some filetypes
+
 
 ```vimscript
+" disable highlighting for some filetypes
 let g:cursorword_disable_filetypes = []
+
+" min width of word
+let g:cursorword_min_width = 3
+
+" max width of word
+let g:cursorword_max_width = 50
 ```
 
-or
-
-```lua
-vim.g.cursorword_disable_filetypes = {}
-```
 
 ## highlight
 
 by default
 
 ```viml
-hi! CursorWord cterm=underline gui=underline
+hi default CursorWord cterm=underline gui=underline
 ```
