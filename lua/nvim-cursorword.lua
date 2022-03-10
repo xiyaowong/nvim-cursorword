@@ -34,7 +34,7 @@ function M.matchadd()
 
   local cursorword = left .. right
 
-  if cursorword == vim.w.cursorwod then
+  if cursorword == vim.w.cursorword then
     return
   end
 
