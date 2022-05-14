@@ -8,7 +8,7 @@ Part of [nvim-cursorline](https://github.com/yamatsum/nvim-cursorline).
 
 Only highlight the word under the cursor.
 
-## Option
+## Options
 
 
 
@@ -16,11 +16,24 @@ Only highlight the word under the cursor.
 " disable highlighting for some filetypes
 let g:cursorword_disable_filetypes = []
 
+" disable highlighting at startup.
+" run :CursorWordEnable or :CursorWordToggle to activate highlighting
+let g:cursorword_disable_at_startup = 1
+
 " min width of word
 let g:cursorword_min_width = 3
 
 " max width of word
 let g:cursorword_max_width = 50
+```
+
+## Commands
+
+
+```vimscript
+:CursorWordDisable
+:CursorWordEnable
+:CursorWordToggle
 ```
 
 
