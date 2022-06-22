@@ -18,7 +18,7 @@ let g:cursorword_disable_filetypes = []
 
 " disable highlighting at startup.
 " run :CursorWordEnable or :CursorWordToggle to activate highlighting
-let g:cursorword_disable_at_startup = 1
+let g:cursorword_disable_at_startup = true
 
 " min width of word
 let g:cursorword_min_width = 3
